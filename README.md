@@ -9,7 +9,7 @@ This sounds like a solid plan for organizing your portfolio. Here is a clean, pr
 
 ## About Me
 
-Hi, I'm **Gamaliel (Genel) Leguista**. I am a former healthcare operations professional transitioning into **Software Engineering**. My focus is on building robust applications using **Python**, exploring the power of **Blockchain** for data integrity, and integrating **Machine Learning** to solve real-world problems.
+Hi, I'm **Gamaliel Leguista**. I am a former healthcare operations professional transitioning into **Software Engineering**. My focus is on building robust applications using **Python**, exploring the power of **Blockchain** for data integrity, and integrating **Machine Learning** to solve real-world problems.
 
 ---
 
