@@ -3,7 +3,7 @@
 Software Engineer transitioning from healthcare operations into backend and AI-focused software development.
 Stack focus: **Python, FastAPI, PostgreSQL, TypeScript, Node.js, LLM APIs, Blockchain (Solidity)**.
 
-GitHub: [@AmilGael](https://github.com/AmilGael) · Email: gamaleguista@gmail.com
+GitHub: [@AmilGael](https://github.com/AmilGael) 
 
 ---
 
