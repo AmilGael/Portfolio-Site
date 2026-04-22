@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0a08;
+  --text: #ede5d3;
+  --muted: #7a7367;
+  --signal: #c77a3a;
+  --rule: #1f1c18;
+  --surface: #13110e;
+}
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+  scrollbar-color: var(--signal) var(--bg);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 72px;
+}
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 0;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--signal);
+  color: #0b0a08;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--signal);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d98a47;
+}
+
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ASCII art blocks — tight, monospaced, unwrapped */
+.ascii {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  white-space: pre;
+  line-height: 1;
+  letter-spacing: 0;
+  tab-size: 1;
+}
+
+/* Signature motion: headlines fade up 12px on scroll-in, 600ms ease-out */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Project card expand-on-hover without layout jank */
+.card-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.card-detail > .card-detail-inner {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+.project-card:hover .card-detail,
+.project-card:focus-within .card-detail {
+  grid-template-rows: 1fr;
+}
+.project-card:hover .card-detail > .card-detail-inner,
+.project-card:focus-within .card-detail > .card-detail-inner {
+  opacity: 1;
+}
+
+/* Always-open detail on touch / narrow viewports (no hover) */
+@media (hover: none) {
+  .card-detail {
+    grid-template-rows: 1fr;
+  }
+  .card-detail > .card-detail-inner {
+    opacity: 1;
+  }
+}
+
+/* Amber underline for the signal link */
+.signal-link {
+  color: var(--text);
+  text-decoration: none;
+  padding-bottom: 2px;
+  background-image: linear-gradient(var(--signal), var(--signal));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 1px;
+  transition: background-size 300ms ease-out, color 300ms ease-out;
+}
+.signal-link:hover {
+  color: var(--signal);
+  background-size: 100% 2px;
+}
+
+/* Sidebar value swap — subtle fade-in to smooth the transition between sections.
+   Animation (not transition) so it fires on mount when React replaces the keyed span. */
+.sidebar-value {
+  animation: sidebar-swap 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes sidebar-swap {
+  from {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible,
+  .sidebar-value {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
