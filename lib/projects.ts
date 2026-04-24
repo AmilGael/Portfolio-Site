@@ -1,3 +1,5 @@
+export type ProjectLink = { url: string; label: string } | null;
+
 export type Project = {
   name: string;
   logline: string;
@@ -5,52 +7,58 @@ export type Project = {
   status: string;
   year: string;
   detail: string;
+  repo: ProjectLink;
+  live?: ProjectLink;
 };
 
 export const projects: Project[] = [
   {
+    name: "MatchPoint",
+    logline:
+      "Semantic search API. 500 resources, 1,200 entries, ranked by meaning.",
+    stack: "Python · FastAPI · PostgreSQL · pgvector · OpenAI",
+    status: "In Development",
+    year: "2025",
+    detail:
+      "Built a semantic search API using OpenAI's text-embedding-3-small to rank resources by meaning. pgvector inside PostgreSQL handles vector similarity search across roughly 500 resources and 1,200 entries. Relational and vector data live in a single PostgreSQL database to keep the architecture simple; the API is exposed through a FastAPI REST layer.",
+    repo: null,
+  },
+  {
+    name: "Sentry",
+    logline:
+      "Case management platform for re-entry facilities, with signed QR movement passes.",
+    stack: "Next.js · TypeScript · PostgreSQL · Prisma · Auth.js · HMAC-SHA256",
+    status: "Shipped",
+    year: "2025",
+    detail:
+      "Full-stack case management platform for residential re-entry facilities. Role-based access control across four staff roles (Admin, Case Manager, Employment Specialist, Front Desk) on PostgreSQL 15 and Prisma. Movement passes are cryptographically signed QR codes using HMAC-SHA256; failed signature verifications auto-generate incident reports so accountability survives shift changes.",
+    repo: {
+      url: "https://github.com/AmilGael/Sentry",
+      label: "github.com/AmilGael/Sentry",
+    },
+  },
+  {
+    name: "MHS2",
+    logline:
+      "AI mental health support platform. Crisis detection and escalation.",
+    stack: "React · TypeScript · Vite · TailwindCSS · Google Gemini API",
+    status: "Shipped",
+    year: "2025",
+    detail:
+      "AI mental health support platform integrating Google Gemini. Built the service layer that handles conversation state, AI response processing, and automated detection of high-risk signals, with escalation workflows that route sensitive conversations to appropriate human support channels.",
+    repo: {
+      url: "https://github.com/AmilGael/MHS2",
+      label: "github.com/AmilGael/MHS2",
+    },
+  },
+  {
     name: "Anchore",
-    logline: "Blockchain document verification backend on Ethereum testnet.",
-    stack: "Solidity · Web3.py · FastAPI",
-    status: "Shipped",
+    logline: "Immutable digital notary. Document hashes anchored on-chain.",
+    stack: "Solidity · Python · Web3.py · Ethereum Sepolia",
+    status: "Deployed · Sepolia",
     year: "2025",
     detail:
-      "Co-built the backend and Solidity notary contract that seals SHA-256 document fingerprints into an Ethereum-compatible ledger. The API takes an arbitrary file, computes its hash off-chain, and anchors the digest on-chain — producing an immutable receipt that outlives any institution's filing cabinet.",
-  },
-  {
-    name: "Semantic Search Engine",
-    logline: "pgvector-backed retrieval using AI embeddings.",
-    stack: "Python · PostgreSQL · pgvector · OpenAI",
-    status: "Internal",
-    year: "2025",
-    detail:
-      "A retrieval system that understands intent rather than keywords. OpenAI embeddings persisted in Postgres through pgvector, with cosine-similarity search over arbitrary document corpora. Built to make production-grade RAG infrastructure legible to engineers without an ML background.",
-  },
-  {
-    name: "NLP Support Classifier",
-    logline: "Ticket triage pipeline — 87% accuracy.",
-    stack: "Python · scikit-learn",
-    status: "Shipped",
-    year: "2024",
-    detail:
-      "A disciplined scikit-learn pipeline that routes inbound support tickets into categories at 87% accuracy. TF-IDF features, logistic regression baseline, careful class balancing. A small reminder of how much ground classical NLP still covers before reaching for a transformer.",
-  },
-  {
-    name: "Healthcare Agent",
-    logline: "Multi-step AI workflow — two hours to under five minutes.",
-    stack: "OpenAI · Anthropic Claude · FastAPI",
-    status: "In production",
-    year: "2025",
-    detail:
-      "A multi-step agent that replaces a two-hour manual intake process with under five minutes of guided conversation. Orchestrates OpenAI and Anthropic models behind a FastAPI service, with structured-output validation and human-in-the-loop escalation wired directly into the graph.",
-  },
-  {
-    name: "Cal.com Round Robin Indicator",
-    logline: "Open-source contribution — fairness signal for team schedulers.",
-    stack: "TypeScript · React",
-    status: "Merged",
-    year: "2025",
-    detail:
-      "An amber indicator on team avatars that surfaces when round-robin booking has drifted out of balance. Lets managers see scheduling inequity at a glance without cracking open the data. Merged upstream into the Cal.com open-source scheduler.",
+      "Solidity smart contracts record document hashes and credential metadata on-chain; a Python service using Web3.py manages all contract interaction and transaction submission. Deployed and tested on the Ethereum Sepolia testnet. Records can be verified without reliance on a central authority.",
+    repo: null,
   },
 ];

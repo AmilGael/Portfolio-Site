@@ -11,13 +11,13 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gamaliel — Archive",
+  title: "Gamaliel // Archive",
   description:
-    "Gamaliel — engineer, writer, operator. Building systems for the people institutions overlook.",
+    "Backend engineer. Building systems for people the default ones overlook.",
   openGraph: {
-    title: "Gamaliel — Archive",
+    title: "Gamaliel // Archive",
     description:
-      "Engineer, writer, operator. Building systems for the people institutions overlook.",
+      "Backend engineer. Building systems for people the default ones overlook.",
     type: "website",
   },
 };

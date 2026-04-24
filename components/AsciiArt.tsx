@@ -21,7 +21,7 @@ export default function AsciiArt() {
   return (
     <div
       role="img"
-      aria-label="ASCII art banner — Gamaliel Leguista, with a small cat"
+      aria-label="ASCII art banner. Gamaliel Leguista, with a small cat"
       className="flex flex-col items-start gap-6 md:flex-row md:items-end md:gap-10 lg:gap-14"
     >
       <Reveal delay={90}>

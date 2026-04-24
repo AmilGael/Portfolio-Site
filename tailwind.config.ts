@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0B0A08",
-        text: "#EDE5D3",
-        muted: "#7A7367",
-        signal: "#C77A3A",
-        rule: "#1F1C18",
-        surface: "#13110E",
+        bg: "#080C09",
+        text: "#D8E5CF",
+        muted: "#6C7D68",
+        signal: "#57B97A",
+        rule: "#161C17",
+        surface: "#0D130E",
       },
       fontFamily: {
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],

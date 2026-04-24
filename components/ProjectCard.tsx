@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function ProjectCard({ project, index }: Props) {
-  const { name, logline, stack, status, year, detail } = project;
+  const { name, logline, stack, status, year, detail, repo, live } = project;
   return (
     <Reveal delay={index * 60} className="h-full">
       <article
@@ -34,8 +34,50 @@ export default function ProjectCard({ project, index }: Props) {
           <Meta label="Status" value={status} />
           <Meta label="Year" value={year} />
         </div>
+
+        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[11.5px] caps">
+          {repo ? (
+            <LinkRow label="Repo" href={repo.url} display={repo.label} />
+          ) : (
+            <span className="inline-flex items-baseline gap-1.5 italic text-rule">
+              <span className="not-italic">Repo</span>
+              <span className="normal-case tracking-normal">
+                private, available on request
+              </span>
+            </span>
+          )}
+          {live && (
+            <LinkRow label="Live" href={live.url} display={live.label} />
+          )}
+        </div>
       </article>
     </Reveal>
+  );
+}
+
+function LinkRow({
+  label,
+  href,
+  display,
+}: {
+  label: string;
+  href: string;
+  display: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="signal-link inline-flex items-baseline gap-1.5 text-muted hover:text-text"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <span className="text-rule">{label}</span>
+      <span className="normal-case tracking-normal">{display}</span>
+      <span aria-hidden className="text-signal">
+        ↗
+      </span>
+    </a>
   );
 }
 
