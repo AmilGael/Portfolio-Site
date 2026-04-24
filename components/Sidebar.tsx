@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import TerminalMenu, { type MenuItem } from "./TerminalMenu";
+import { assetPath } from "@/lib/paths";
 
 type Props = {
   entry: string;
@@ -79,7 +80,7 @@ export default function Sidebar({
 
         <div className="pointer-events-auto mt-8 space-y-6">
           <AvatarFrame
-            src="/IMG_0779.png"
+            src={assetPath("/IMG_0779.png")}
             alt="Gamaliel Leguista"
             caption="FILE PHOTO · 2026"
           />

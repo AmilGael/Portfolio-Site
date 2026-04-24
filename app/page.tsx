@@ -8,6 +8,7 @@ import ProjectCard from "@/components/ProjectCard";
 import AsciiArt from "@/components/AsciiArt";
 import TerminalMenu, { type MenuItem } from "@/components/TerminalMenu";
 import BinaryBackground from "@/components/BinaryBackground";
+import { assetPath } from "@/lib/paths";
 import { projects } from "@/lib/projects";
 import { skills } from "@/lib/skills";
 
@@ -265,7 +266,7 @@ function ResumeView() {
           ── RESUME.PDF ──
         </span>
         <iframe
-          src="/resume.pdf#view=FitH&toolbar=0&navpanes=0"
+          src={`${assetPath("/resume.pdf")}#view=FitH&toolbar=0&navpanes=0`}
           title="Gamaliel Leguista Resume"
           className="block h-[calc(100vh-16rem)] min-h-[560px] w-full bg-surface"
         />
