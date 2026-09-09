@@ -21,6 +21,35 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "daysi",
+    name: "Daysi Collection",
+    year: "2026",
+    status: "Live",
+    logline:
+      "A bilingual atelier site for the Bronx. Custom garments, alterations at published prices, a back office the owner controls.",
+    what: "The website and client workflow tools for Daysi Fernández's atelier: a filterable collection with fixed prices, an alterations price list, an estimate builder, appointments against real availability, a request flow that reaches the owner with everything she needs, and a passwordless back office for orders, sessions and the books. Spanish first, English second, and architected for client ownership on accounts the business controls, with no recurring platform fees.",
+    role: "Solo, end to end. Led bilingual client discovery on site, authored the product requirements document across three revisions, and built the whole thing: one price list that every page resolves to, server-side pricing, Stripe Checkout, the Google Business Profile integration, and the office.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "next-intl",
+      "Stripe Checkout",
+      "zod",
+    ],
+    live: {
+      url: "https://daysiscollectioninc.com/",
+      label: "daysiscollectioninc.com",
+    },
+    repo: {
+      url: "https://github.com/AmilGael/Daysi-Collection-Website-",
+      label: "github.com/AmilGael/Daysi-Collection-Website-",
+    },
+    collaborators: [],
+    client: "Daysi Collection Inc.",
+    program: "Google SMB Program (Hispanic Federation), Pursuit",
+    figures: [{ value: "10", label: "builders selected, program-wide" }],
+  },
+  {
     id: "vantage",
     name: "Vantage · Executive Intelligence",
     year: "2026",
@@ -69,35 +98,6 @@ export const projects: Project[] = [
     live: { url: "https://www.raphel360.com/", label: "raphel360.com" },
     repo: "private",
     collaborators: [{ name: "Victor Manuel Acevedo" }],
-  },
-  {
-    id: "daysi",
-    name: "Daysi Collection",
-    year: "2026",
-    status: "Live",
-    logline:
-      "A bilingual atelier site for the Bronx. Custom garments, alterations at published prices, a back office the owner controls.",
-    what: "The website and client workflow tools for Daysi Fernández's atelier: a filterable collection with fixed prices, an alterations price list, an estimate builder, appointments against real availability, a request flow that reaches the owner with everything she needs, and a passwordless back office for orders, sessions and the books. Spanish first, English second, and architected for client ownership on accounts the business controls, with no recurring platform fees.",
-    role: "Solo, end to end. Led bilingual client discovery on site, authored the product requirements document across three revisions, and built the whole thing: one price list that every page resolves to, server-side pricing, Stripe Checkout, the Google Business Profile integration, and the office.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "next-intl",
-      "Stripe Checkout",
-      "zod",
-    ],
-    live: {
-      url: "https://daysiscollectioninc.com/",
-      label: "daysiscollectioninc.com",
-    },
-    repo: {
-      url: "https://github.com/AmilGael/Daysi-Collection-Website-",
-      label: "github.com/AmilGael/Daysi-Collection-Website-",
-    },
-    collaborators: [],
-    client: "Daysi Collection Inc.",
-    program: "Google SMB Program (Hispanic Federation), Pursuit",
-    figures: [{ value: "10", label: "builders selected, program-wide" }],
   },
   {
     id: "sentry",

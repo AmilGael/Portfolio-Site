@@ -88,14 +88,6 @@ body {
   background-size: 100% 2px;
 }
 
-/* The portrait ships hidden so the photograph never flashes before the
-   character render takes over; only a no-script visitor gets it outright. */
-@media (scripting: none) {
-  .portrait-photo {
-    opacity: 1 !important;
-  }
-}
-
 /* Builds list: height animates on the grid track so layout never jumps */
 .build-panel {
   display: grid;

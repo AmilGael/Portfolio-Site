@@ -4,7 +4,7 @@ import type React from "react";
 import AsciiArt from "@/components/AsciiArt";
 import BinaryBackground from "@/components/BinaryBackground";
 import BuildsList from "@/components/BuildsList";
-import DevelopingPortrait from "@/components/DevelopingPortrait";
+import Portrait from "@/components/Portrait";
 import Prompt from "@/components/Prompt";
 import Sidebar from "@/components/Sidebar";
 import type { MenuItem } from "@/components/TerminalMenu";
@@ -39,7 +39,7 @@ function ContactRow({
     <li>
       <div className="grid grid-cols-[5.5rem_auto_1fr] items-baseline gap-4 md:grid-cols-[7rem_auto_1fr] md:gap-6">
         <span className="caps text-[12px] text-muted">{label}</span>
-        <span aria-hidden className="text-rule">
+        <span aria-hidden className="text-muted">
           →
         </span>
         <a
@@ -65,20 +65,15 @@ export default function Page() {
           <div data-sc-stage>
             <div className="flex h-full flex-col justify-center pt-[104px] md:pt-0 px-5 md:px-10 lg:px-20">
               <h1 className="sr-only">Gamaliel Leguista</h1>
-              <div data-sc-cue="0 0.9 0" className="overflow-x-auto pb-2">
+              <div data-sc-cue="0 1 0 0.06" className="overflow-x-auto pb-2">
                 <AsciiArt />
               </div>
               <div className="md:hidden">
-                <DevelopingPortrait
-                  src={assetPath("/portrait.jpg")}
-                  srcSet={`${assetPath("/portrait@2x.jpg")} 2x`}
-                  alt="Gamaliel Leguista"
-                  className="mt-6 w-[160px]"
-                />
+                <Portrait className="mt-6 w-[160px]" />
               </div>
               <dl className="mt-10 space-y-4 max-w-xl">
                 <div
-                  data-sc-cue="0.08 0.5"
+                  data-sc-cue="0.08 1 0.08 0.06"
                   className="grid grid-cols-[6.5rem_1fr] items-baseline gap-4"
                 >
                   <dt className="caps text-[12px] text-muted">&gt; whoami</dt>
@@ -87,7 +82,7 @@ export default function Page() {
                   </dd>
                 </div>
                 <div
-                  data-sc-cue="0.26 0.72"
+                  data-sc-cue="0.24 1 0.08 0.06"
                   className="grid grid-cols-[6.5rem_1fr] items-baseline gap-4"
                 >
                   <dt className="caps text-[12px] text-muted">&gt; locale</dt>
@@ -96,7 +91,7 @@ export default function Page() {
                   </dd>
                 </div>
                 <div
-                  data-sc-cue="0.46 1"
+                  data-sc-cue="0.42 1 0.08 0.06"
                   className="grid grid-cols-[6.5rem_1fr] items-baseline gap-4"
                 >
                   <dt className="caps text-[12px] text-muted">&gt; status</dt>
@@ -128,7 +123,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="profile" data-sc-act="pin" data-sc-span="2.4">
+        <section id="profile" data-sc-act="pin" data-sc-span="3.0">
           <div data-sc-stage>
             <div className="flex h-full flex-col justify-center pt-[104px] md:pt-0 px-5 md:px-10 lg:px-20">
               <div className="max-w-[62ch]">
@@ -140,31 +135,31 @@ export default function Page() {
                 </h2>
                 <div className="profile-lines relative mt-8 min-h-[16rem] md:min-h-[14rem]">
                   <p
-                    data-sc-cue="0 0.26 0"
+                    data-sc-cue="0 0.12 0 0.25"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
                     I keep records for a living. At Urban Health Plan I have handled chart custody under HIPAA since 2023: who asked, what left, when it came back.
                   </p>
                   <p
-                    data-sc-cue="0.18 0.44"
+                    data-sc-cue="0.09 0.34 0.12 0.12"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
                     That is why the builds look the way they do. Sentry signs every movement pass. Raphel chains every site entry to the one before it. A record you can quietly edit is not a record.
                   </p>
                   <p
-                    data-sc-cue="0.36 0.62"
+                    data-sc-cue="0.31 0.56 0.12 0.12"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
                     Vantage ranks healthcare executives for a private equity client. I did not borrow the domain; I came from it.
                   </p>
                   <p
-                    data-sc-cue="0.54 0.80"
+                    data-sc-cue="0.53 0.78 0.12 0.12"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
                     I work in two languages. Raphel is built for Dominican construction sites. Daysi&apos;s site opens in Spanish. I have volunteered in the Dominican Republic with Light a Candle Foundation since 2016.
                   </p>
                   <p
-                    data-sc-cue="0.72 1"
+                    data-sc-cue="0.75 1 0.12 0.12"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
                     I take products end to end: discovery on site, a requirements document through three revisions, a live demo in front of Blackstone&apos;s investment team. Twenty CRM merged my fix for 27 languages.

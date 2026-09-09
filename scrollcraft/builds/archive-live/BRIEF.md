@@ -41,15 +41,17 @@ Total about 10.6 viewport-heights across 5 acts. No device twice in a row. Silen
 
 ## The peak
 
-Act 2. As a visitor would say it: **"I clicked Vantage and the whole dossier unfolded, links and all, and the guy on the left came into focus."**
+Act 2. As a visitor would say it: **"I clicked Daysi and the whole dossier unfolded, links and all."**
 
 ## The tell-someone sentence
 
-It's the site where **the portfolio is a running console, and the operator's photo develops while you read his files.**
+It's the site where **the portfolio is a running console and every build opens like a file.**
 
 ## Signature move
 
-The developing portrait. The sidebar photo starts as a character render computed from the real image's luminance on a canvas, refines as the visitor scrolls Identity into Builds (cell size shrinks, ramp densifies), holds just short of finished, and completes into the photograph the moment the first build is opened. Bespoke code in the page; the engine is untouched. Reduced motion shows the photograph immediately.
+Planned and built as the developing portrait (a character render of the real photograph that resolved with scroll and completed on the first build opened). **Removed on the owner's instruction after review on 2026-09-09: "Take away the effect."** The portrait is now the plain photograph, waist-up 3:4, from the photo supplied that day. The page ships without a bespoke signature move; the peak (the builds list opening like a file) stands on its own.
+
+Order change from the same review: builds run Daysi, Vantage, Raphel, Sentry, Twenty.
 
 ## Authored silence
 

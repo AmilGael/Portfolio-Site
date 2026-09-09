@@ -2,9 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { MouseEvent } from "react";
-import DevelopingPortrait from "./DevelopingPortrait";
+import Portrait from "./Portrait";
 import TerminalMenu, { type MenuItem } from "./TerminalMenu";
-import { assetPath } from "@/lib/paths";
 import { activeActId } from "@/lib/scrollcraft";
 
 type Props = {
@@ -30,7 +29,7 @@ export function SidebarRow({
 }) {
   return (
     <div className="space-y-1.5">
-      <span className="caps block text-[10.5px] text-rule">{label}</span>
+      <span className="caps block text-[10.5px] text-muted">{label}</span>
       <span className={`block tabular-nums ${valueClassName}`}>{value}</span>
     </div>
   );
@@ -132,16 +131,11 @@ export default function Sidebar({ menu }: Props) {
         </div>
 
         <div className="pointer-events-auto mt-8 space-y-2">
-          <span className="caps block text-[10.5px] text-rule">
+          <span className="caps block text-[10.5px] text-muted">
             ── Operator ──
           </span>
-          <DevelopingPortrait
-            src={assetPath("/portrait.jpg")}
-            srcSet={`${assetPath("/portrait@2x.jpg")} 2x`}
-            alt="Gamaliel Leguista"
-            className="w-full max-w-[160px]"
-          />
-          <span className="caps block text-[9.5px] text-rule">
+          <Portrait className="w-full max-w-[160px]" />
+          <span className="caps block text-[9.5px] text-muted">
             FILE PHOTO · 2026
           </span>
         </div>
@@ -159,7 +153,7 @@ export default function Sidebar({ menu }: Props) {
           />
         </div>
 
-        <div className="pointer-events-auto caps text-[11px] text-rule">
+        <div className="pointer-events-auto caps text-[11px] text-muted/60">
           <span>Archive</span>
           <span className="mx-2">//</span>
           <span>NYC</span>

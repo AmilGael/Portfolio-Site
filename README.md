@@ -10,6 +10,14 @@ GitHub: [@AmilGael](https://github.com/AmilGael)
 
 ## Builds
 
+### Daysi Collection
+
+A bilingual atelier site for the Bronx. Custom garments, alterations at published prices, a back office the owner controls.
+
+- **Stack:** Next.js · TypeScript · next-intl · Stripe Checkout · zod.
+- **Live:** https://daysiscollectioninc.com/
+- **Repo:** https://github.com/AmilGael/Daysi-Collection-Website-
+
 ### Vantage · Executive Intelligence
 
 Executive search for private equity. Plain-language queries return AI-ranked, fit-scored healthcare executives.
@@ -27,14 +35,6 @@ The black box for a construction site. Every entry is chained to the one before 
 - **Live:** https://www.raphel360.com/
 - **Repo:** private, available on request.
 - **With:** Victor Manuel Acevedo.
-
-### Daysi Collection
-
-A bilingual atelier site for the Bronx. Custom garments, alterations at published prices, a back office the owner controls.
-
-- **Stack:** Next.js · TypeScript · next-intl · Stripe Checkout · zod.
-- **Live:** https://daysiscollectioninc.com/
-- **Repo:** https://github.com/AmilGael/Daysi-Collection-Website-
 
 ### Sentry
 

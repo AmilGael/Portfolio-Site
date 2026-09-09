@@ -168,7 +168,7 @@ export default function BuildsList({ projects }: Props) {
               >
                 <span
                   className={`text-[12px] ${
-                    isOpen ? "text-signal" : "text-rule"
+                    isOpen ? "text-signal" : "text-muted/70"
                   }`}
                 >
                   {displayIndex}
@@ -189,7 +189,7 @@ export default function BuildsList({ projects }: Props) {
                 </span>
                 <span
                   className={`caps text-right text-[11.5px] ${
-                    project.live ? "text-signal" : "text-rule"
+                    project.live ? "text-signal" : "text-muted/60"
                   }`}
                 >
                   {project.live ? "live ↗" : "open"}

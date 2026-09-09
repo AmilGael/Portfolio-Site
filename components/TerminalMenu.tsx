@@ -66,7 +66,7 @@ export default function TerminalMenu({
                 >
                   &gt;
                 </span>
-                <span className={`${indexWidth} text-rule`}>[{i + 1}]</span>
+                <span className={`${indexWidth} text-muted/60`}>[{i + 1}]</span>
                 <span className="truncate">{item.label}</span>
               </a>
             </li>
