@@ -28,9 +28,7 @@ changes only grammar and world will fail it.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
-
-*(empty: your first build has nothing to clear, so build whatever the interview
-points at. From the second onwards, this table is the constraint.)*
+| archive-live (2026-09-09) | Live surface | Fixed left sidebar as app chrome: jump list, position readout, live status, portrait | Pinned console boot: ASCII banner greet, three status lines land in sequence | pin > flow > pin > pan > pin, 5 acts, 8.8vh | Pinned prompt input that composes an email, holds | None shipped (developing portrait built, then removed on owner request) | None: own photograph, dark canvas, one green accent | 4500 |
 
 ---
 
@@ -41,7 +39,7 @@ reusing: a grammar, a nav treatment, a close pattern, a signature move, an
 act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
-Nothing is taken yet.
+- Live surface grammar with a fixed left sidebar as app chrome, a pinned console boot, a pin > flow > pin > pan > pin shape at 8.8vh, and a prompt-input close are all taken by archive-live.
 
 ---
 
