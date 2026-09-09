@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         bg: "#080C09",
         text: "#D8E5CF",
-        muted: "#6C7D68",
+        muted: "#7A8C76",
         signal: "#57B97A",
         rule: "#161C17",
         surface: "#0D130E",

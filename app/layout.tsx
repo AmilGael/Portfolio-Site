@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import ScrollCraftMount from "@/components/ScrollCraftMount";
+import "./scrollcraft.css";
 import "./globals.css";
 
 const plexMono = IBM_Plex_Mono({
@@ -13,11 +15,11 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Gamaliel // Archive",
   description:
-    "Backend engineer. Building systems for people the default ones overlook.",
+    "AI engineer and full-stack developer. Bronx, NY. Client-facing products end to end, from discovery to live demo.",
   openGraph: {
     title: "Gamaliel // Archive",
     description:
-      "Backend engineer. Building systems for people the default ones overlook.",
+      "AI engineer and full-stack developer. Bronx, NY. Client-facing products end to end, from discovery to live demo.",
     type: "website",
   },
 };
@@ -29,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={plexMono.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollCraftMount />
+      </body>
     </html>
   );
 }
