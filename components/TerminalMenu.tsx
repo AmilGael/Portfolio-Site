@@ -3,9 +3,6 @@
 export type MenuItem = {
   id: string;
   label: string;
-  href?: string;
-  download?: boolean;
-  external?: boolean;
 };
 
 type Props = {
@@ -45,60 +42,33 @@ export default function TerminalMenu({
       <ul className="space-y-[2px]">
         {items.map((item, i) => {
           const active = item.id === activeId;
-          const isLink = Boolean(item.href);
-
           const rowClass = `group flex items-baseline gap-2 leading-tight transition-colors duration-200 ${rowSize} ${
             active
               ? "bg-surface text-text"
               : "text-muted hover:bg-surface hover:text-text"
           }`;
 
-          const inner = (
-            <>
-              <span
-                aria-hidden
-                className={`w-[0.9em] text-signal ${
-                  active ? "opacity-100" : "opacity-0 group-hover:opacity-60"
-                }`}
-              >
-                &gt;
-              </span>
-              <span className={`${indexWidth} text-rule`}>[{i + 1}]</span>
-              <span className="truncate">{item.label}</span>
-              {item.download && (
-                <span aria-hidden className="ml-auto text-signal">
-                  ↓
-                </span>
-              )}
-              {item.external && !item.download && (
-                <span aria-hidden className="ml-auto text-rule">
-                  ↗
-                </span>
-              )}
-            </>
-          );
-
           return (
             <li key={item.id}>
-              {isLink ? (
-                <a
-                  href={item.href}
-                  download={item.download || undefined}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noreferrer" : undefined}
-                  className={rowClass}
+              <a
+                href={`#${item.id}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onSelect(item.id);
+                }}
+                className={rowClass}
+              >
+                <span
+                  aria-hidden
+                  className={`w-[0.9em] text-signal ${
+                    active ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                  }`}
                 >
-                  {inner}
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => onSelect(item.id)}
-                  className={`${rowClass} w-full text-left`}
-                >
-                  {inner}
-                </button>
-              )}
+                  &gt;
+                </span>
+                <span className={`${indexWidth} text-rule`}>[{i + 1}]</span>
+                <span className="truncate">{item.label}</span>
+              </a>
             </li>
           );
         })}
