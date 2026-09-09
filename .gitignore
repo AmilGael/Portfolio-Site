@@ -11,3 +11,11 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# scrollcraft workspace: keep BRIEF.md and FINGERPRINTS.md, drop harness output and tooling
+scrollcraft/**/lab/
+scrollcraft/**/node_modules/
+scrollcraft/package.json
+scrollcraft/package-lock.json
+scrollcraft/builds/*/codex/*.last.md
+scrollcraft/builds/*/codex/*.log

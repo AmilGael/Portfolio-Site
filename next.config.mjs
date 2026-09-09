@@ -1,22 +1,17 @@
-// Static export mode is triggered when deploying to GitHub Pages (via the
-// workflow) or when explicitly requested with NEXT_OUTPUT=export. In that
-// case we need a basePath because the site is served from a subpath:
-// https://amilgael.github.io/Portfolio-Site/
-const isStaticExport =
-  process.env.NEXT_OUTPUT === "export" ||
-  process.env.GITHUB_ACTIONS === "true";
-
-const basePath = isStaticExport ? "/Portfolio-Site" : "";
+// Netlify serves the static export at its root; keeping this environment-driven
+// preserves opt-in subpath deploys without coupling the site to a host.
+const isStaticExport = process.env.NEXT_OUTPUT === "export";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const isDev = process.env.NODE_ENV !== "production";
 
+// public/_headers must be kept in sync with this policy.
 const cspDirectives = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  "frame-src 'self'",
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -67,8 +62,8 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  // headers() only runs when Next serves requests (Vercel, Node). Ignored on
-  // GitHub Pages, but kept so hosts that support it still apply our CSP stack.
+  // headers() only runs when Next serves requests; static hosts use their own
+  // header configuration instead.
   ...(isStaticExport
     ? {}
     : {
