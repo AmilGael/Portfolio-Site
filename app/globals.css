@@ -87,3 +87,11 @@ body {
   color: var(--signal);
   background-size: 100% 2px;
 }
+
+/* The portrait ships hidden so the photograph never flashes before the
+   character render takes over; only a no-script visitor gets it outright. */
+@media (scripting: none) {
+  .portrait-photo {
+    opacity: 1 !important;
+  }
+}

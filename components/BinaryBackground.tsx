@@ -1,79 +1,143 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const COLS = 180;
-const ROWS = 90;
-const FLIP_INTERVAL_MS = 280;
+const MASK =
+  "radial-gradient(ellipse 90% 85% at 60% 45%, black 30%, transparent 95%)";
+const FONT_SIZE = 11;
+const ROW_HEIGHT = FONT_SIZE * 1.15;
+const LETTER_SPACING = FONT_SIZE * 0.15;
 const FLIPS_PER_TICK = 9;
-
-function randomRow(): string {
-  let out = "";
-  for (let i = 0; i < COLS; i++) out += Math.random() < 0.5 ? "1" : "0";
-  return out;
-}
-
-function randomRows(): string[] {
-  return Array.from({ length: ROWS }, randomRow);
-}
-
-function flip(bit: string): string {
-  return bit === "1" ? "0" : "1";
-}
+const FLIP_INTERVAL_MS = 280;
+const RESIZE_DEBOUNCE_MS = 150;
 
 export default function BinaryBackground() {
-  // Start empty on the server so SSR and client agree on first render.
-  const [rows, setRows] = useState<string[]>(() =>
-    Array(ROWS).fill("".padEnd(COLS, " ")),
-  );
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    setRows(randomRows());
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const id = window.setInterval(() => {
-      setRows((prev) => {
-        if (prev.length === 0) return prev;
-        const next = prev.slice();
-        for (let i = 0; i < FLIPS_PER_TICK; i++) {
-          const r = Math.floor(Math.random() * ROWS);
-          const c = Math.floor(Math.random() * COLS);
-          const row = next[r];
-          if (row[c] === "0" || row[c] === "1") {
-            next[r] = row.slice(0, c) + flip(row[c]) + row.slice(c + 1);
-          }
+    const context = canvas.getContext("2d");
+    if (!context) return;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    let bits = new Uint8Array(0);
+    let cols = 0;
+    let rows = 0;
+    let colAdvance = 0;
+    let intervalId: number | null = null;
+    let resizeTimeoutId: number | null = null;
+
+    const configureContext = () => {
+      const fontFamily = getComputedStyle(document.body).fontFamily;
+      const rule = getComputedStyle(
+        document.documentElement,
+      ).getPropertyValue("--rule").trim();
+
+      context.font = `${FONT_SIZE}px ${fontFamily}`;
+      context.textBaseline = "top";
+      context.fillStyle = rule;
+      context.globalAlpha = 0.85;
+      colAdvance = context.measureText("0").width + LETTER_SPACING;
+    };
+
+    const drawGrid = () => {
+      const rect = canvas.getBoundingClientRect();
+      const width = Math.max(1, Math.ceil(rect.width));
+      const height = Math.max(1, Math.ceil(rect.height));
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+      canvas.width = Math.ceil(width * dpr);
+      canvas.height = Math.ceil(height * dpr);
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      configureContext();
+
+      cols = Math.ceil(width / colAdvance) + 1;
+      rows = Math.ceil(height / ROW_HEIGHT) + 1;
+      bits = new Uint8Array(cols * rows);
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let col = 0; col < cols; col += 1) {
+          const index = row * cols + col;
+          const bit = Math.random() < 0.5 ? 0 : 1;
+          bits[index] = bit;
+          context.fillText(String(bit), col * colAdvance, row * ROW_HEIGHT);
         }
-        return next;
-      });
-    }, FLIP_INTERVAL_MS);
+      }
+    };
 
-    return () => window.clearInterval(id);
+    const flipCells = () => {
+      for (let flip = 0; flip < FLIPS_PER_TICK; flip += 1) {
+        const index = Math.floor(Math.random() * bits.length);
+        const row = Math.floor(index / cols);
+        const col = index % cols;
+        const nextBit = bits[index] === 0 ? 1 : 0;
+        const x = col * colAdvance;
+        const y = row * ROW_HEIGHT;
+
+        bits[index] = nextBit;
+        context.clearRect(x, y, colAdvance, ROW_HEIGHT);
+        context.fillText(String(nextBit), x, y);
+      }
+    };
+
+    const stopInterval = () => {
+      if (intervalId === null) return;
+      window.clearInterval(intervalId);
+      intervalId = null;
+    };
+
+    const startInterval = () => {
+      if (reducedMotion || document.hidden || intervalId !== null) return;
+      intervalId = window.setInterval(flipCells, FLIP_INTERVAL_MS);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopInterval();
+      } else {
+        startInterval();
+      }
+    };
+
+    const handleResize = () => {
+      if (resizeTimeoutId !== null) {
+        window.clearTimeout(resizeTimeoutId);
+      }
+      resizeTimeoutId = window.setTimeout(() => {
+        resizeTimeoutId = null;
+        drawGrid();
+      }, RESIZE_DEBOUNCE_MS);
+    };
+
+    drawGrid();
+    window.addEventListener("resize", handleResize);
+
+    if (!reducedMotion) {
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+      startInterval();
+    }
+
+    return () => {
+      stopInterval();
+      if (resizeTimeoutId !== null) {
+        window.clearTimeout(resizeTimeoutId);
+      }
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
-
-  const text = useMemo(() => rows.join("\n"), [rows]);
 
   return (
     <div
       aria-hidden
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-      style={{
-        // Feather the edges so the texture reads as atmosphere, not a wall of numbers
-        WebkitMaskImage:
-          "radial-gradient(ellipse 90% 85% at 60% 45%, black 30%, transparent 95%)",
-        maskImage:
-          "radial-gradient(ellipse 90% 85% at 60% 45%, black 30%, transparent 95%)",
-      }}
+      style={{ WebkitMaskImage: MASK, maskImage: MASK }}
     >
-      <pre
-        className="ascii absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-rule"
-        style={{
-          fontSize: "11px",
-          lineHeight: 1.15,
-          letterSpacing: "0.15em",
-          opacity: 0.85,
-        }}
-      >
-        {text}
-      </pre>
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
     </div>
   );
 }
