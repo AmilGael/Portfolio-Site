@@ -1,50 +1,55 @@
-# Gamaliel Leguista — Backend & AI Portfolio
+# Gamaliel Leguista · AI Engineer · Full-Stack Developer
 
-Software Engineer transitioning from healthcare operations into backend and AI-focused software development.
-Stack focus: **Python, FastAPI, PostgreSQL, TypeScript, Node.js, LLM APIs, Blockchain (Solidity)**.
+AI engineer and full-stack developer who takes client-facing products end to end, from discovery and requirements through production interface and live client demo. Bronx, NY. Bilingual (English/Spanish).
 
-GitHub: [@AmilGael](https://github.com/AmilGael) 
+Portfolio source: Next.js 14 static export, deployed to Netlify. See `CLAUDE.md` for the working rules.
+
+GitHub: [@AmilGael](https://github.com/AmilGael)
 
 ---
 
-## Projects
+## Builds
 
-### 1. Sentry — Re-Entry Resident Management & Employment Pass System
-Web-based case management system for residential re-entry facilities. Digitizes employment authorization workflows, generates cryptographically signed QR movement passes, and provides real-time Front Desk monitoring.
+### Vantage · Executive Intelligence
 
-- **Tech stack:** Next.js 16 (TypeScript), PostgreSQL 15, Prisma 7, NextAuth.js v5, TailwindCSS 4, HMAC-SHA256
-- **My work:** built resident and employment authorization workflows, designed the Prisma schema for residents/passes/incidents, implemented HMAC-signed QR pass generation, built the Front Desk scan/verify flow
+Executive search for private equity. Plain-language queries return AI-ranked, fit-scored healthcare executives.
+
+- **Stack:** React · TypeScript · Tailwind CSS · FastAPI · LLM integration · Thrive TRM.
+- **Live:** https://vantage-demo.onrender.com/
+- **Repo:** private, available on request.
+- **With:** lltchen, KevinNatera.
+
+### Raphel
+
+The black box for a construction site. Every entry is chained to the one before it, so any alteration is detectable.
+
+- **Stack:** Next.js · TypeScript · PostgreSQL · PL/pgSQL · SHA-256 hash chaining.
+- **Live:** https://www.raphel360.com/
+- **Repo:** private, available on request.
+- **With:** Victor Manuel Acevedo.
+
+### Daysi Collection
+
+A bilingual atelier site for the Bronx. Custom garments, alterations at published prices, a back office the owner controls.
+
+- **Stack:** Next.js · TypeScript · next-intl · Stripe Checkout · zod.
+- **Live:** https://daysiscollectioninc.com/
+- **Repo:** https://github.com/AmilGael/Daysi-Collection-Website-
+
+### Sentry
+
+Case management for re-entry facilities. Paper movement passes replaced by signed QR codes.
+
+- **Stack:** Next.js · TypeScript · PostgreSQL · Prisma · NextAuth.js · Tailwind CSS · HMAC-SHA256.
 - **Repo:** https://github.com/AmilGael/Sentry
+- **With:** Jawad5C.
 
-### 2. MHS2 — AI Mental Health Support Platform
-AI-powered mental health support app. Real-time emotional support via Gemini, crisis detection, and escalation to licensed professionals.
+### Twenty CRM · i18n restoration
 
-- **Tech stack:** React 18 + TypeScript, Vite, TailwindCSS, Google Gemini API
-- **My work:** built Gemini API integration service, implemented crisis detection and escalation logic, designed conversation UI components, set up environment-driven configuration
-- **Repo:** https://github.com/AmilGael/Mental-Health-Hub-
+Hardcoded English strings were bypassing the translation system. One fix restored coverage across 27 languages.
 
-### 3. MatchPoint — Job Discovery API (team project)
-High-speed job discovery and candidate matching application.
-
-- **Tech stack:** Python backend, PostgreSQL, REST API
-- **My work:** built API endpoints for jobs, matches, and users; implemented the matching/search algorithm; contributed to UX/UI
-- **Case study:** https://github.com/AmilGael/matchpoint-case-study
-
-### 4. Anchore — Immutable Digital Notary (team project)
-Blockchain-based notary platform that guarantees document authenticity and integrity via on-chain hash anchoring.
-
-- **Tech stack:** Python backend, Solidity smart contracts, Web3, Ethereum-compatible chain
-- **My work:** built Python backend service for document hashing and API, wrote the Solidity notary smart contract, implemented Web3 integration for on-chain anchoring, contributed to the frontend
-- **Case study:** https://github.com/AmilGael/anchore-case-study
-
-### 5. Job Application Tracker API — Solo Backend Project
-A clean FastAPI + PostgreSQL service to track job applications through their lifecycle.
-
-- **Tech stack:** Python 3.11, FastAPI, SQLAlchemy 2, PostgreSQL, Pydantic v2, Alembic, Docker
-- **My work:** 100% solo — built FastAPI service, designed PostgreSQL schema, implemented CRUD + filtering endpoints, wrote Alembic migrations, containerized with Docker
-- **Repo:** https://github.com/AmilGael/job-tracker-api
-
----
+- **Stack:** TypeScript · React · i18n.
+- **Repo:** https://github.com/twentyhq/twenty/pull/21424
 
 ## Contact
 - GitHub: [@AmilGael](https://github.com/AmilGael)

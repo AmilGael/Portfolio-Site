@@ -6,58 +6,40 @@ export type SkillGroup = {
 export const skills: SkillGroup[] = [
   {
     label: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "SQL"],
+  },
+  {
+    label: "AI & ML",
     items: [
-      "Python",
-      "TypeScript",
-      "JavaScript",
-      "Solidity",
-      "SQL",
-      "HTML",
-      "CSS",
+      "LLM integration (Anthropic, OpenAI, Gemini)",
+      "RAG",
+      "Vector search (pgvector)",
+      "Agent workflows",
+      "NLP",
     ],
   },
   {
-    label: "AI / LLM",
-    items: [
-      "OpenAI API",
-      "Anthropic Claude",
-      "Google Gemini",
-      "scikit-learn",
-      "pgvector",
-      "Claude Code",
-    ],
-  },
-  {
-    label: "Backend",
+    label: "Engineering",
     items: [
       "FastAPI",
-      "Next.js",
-      "React",
       "Node.js",
+      "REST APIs",
+      "PostgreSQL",
       "Prisma",
-      "SQLAlchemy",
-      "Pydantic",
-      "Alembic",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Git",
+      "Linux/CLI",
     ],
   },
   {
-    label: "Data",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
-  },
-  {
-    label: "Infra",
-    items: ["AWS", "Docker", "Vercel", "Git", "GitHub"],
-  },
-  {
-    label: "Styling",
-    items: ["Tailwind CSS"],
-  },
-  {
-    label: "Blockchain",
-    items: ["Ethereum", "Web3.py"],
-  },
-  {
-    label: "Auth / Security",
-    items: ["NextAuth.js", "HMAC-SHA256"],
+    label: "Security & Practice",
+    items: [
+      "OWASP Top 10",
+      "STRIDE threat modeling",
+      "Client discovery",
+      "Product requirements documents",
+    ],
   },
 ];
