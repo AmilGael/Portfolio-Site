@@ -19,3 +19,6 @@ scrollcraft/package.json
 scrollcraft/package-lock.json
 scrollcraft/builds/*/codex/*.last.md
 scrollcraft/builds/*/codex/*.log
+
+# Local Netlify folder
+.netlify
