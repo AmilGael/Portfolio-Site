@@ -96,7 +96,7 @@ export default function Page() {
                 >
                   <dt className="caps text-[12px] text-muted">&gt; status</dt>
                   <dd className="text-[15.5px] leading-[1.6] text-text">
-                    Pursuit AI-Native fellowship · Urban Health Plan · concurrently
+                    Pursuit · AI Solutions Architect, Google SMB Program · AI-Native fellowship
                   </dd>
                 </div>
               </dl>
@@ -138,7 +138,7 @@ export default function Page() {
                     data-sc-cue="0 0.12 0 0.25"
                     className="absolute inset-x-0 top-0 text-[clamp(1.15rem,1.9vw,1.55rem)] leading-[1.55] text-text"
                   >
-                    I keep records for a living. At Urban Health Plan I have handled chart custody under HIPAA since 2023: who asked, what left, when it came back.
+                    I kept records for a living. Three years at Urban Health Plan handling chart custody under HIPAA: who asked, what left, when it came back.
                   </p>
                   <p
                     data-sc-cue="0.09 0.34 0.12 0.12"
@@ -166,7 +166,7 @@ export default function Page() {
                   </p>
                 </div>
                 <p className="mt-10 caps text-[12px] text-muted">
-                  Pursuit AI-Native fellowship since September 2025, alongside the clinic. Bronx, NY.
+                  Pursuit AI-Native fellowship since September 2025. AI Solutions Architect on the Google SMB Program since July 2026. Bronx, NY.
                 </p>
               </div>
             </div>
