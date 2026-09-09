@@ -10,8 +10,8 @@ export default function Portrait({ className = "" }: Props) {
     <Image
       src={assetPath("/portrait.jpg")}
       alt="Gamaliel Leguista"
-      width={375}
-      height={500}
+      width={420}
+      height={560}
       priority
       className={`aspect-[3/4] border border-rule bg-surface object-cover ${className}`}
     />
