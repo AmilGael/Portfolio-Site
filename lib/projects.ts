@@ -50,6 +50,44 @@ export const projects: Project[] = [
     figures: [{ value: "10", label: "builders selected, program-wide" }],
   },
   {
+    id: "twenty",
+    name: "Twenty CRM · i18n restoration",
+    year: "2026",
+    status: "Merged upstream",
+    logline:
+      "Hardcoded English strings were bypassing the translation system. One fix restored coverage across 27 languages.",
+    what: "Twenty is an open-source CRM. Settings screens carried hardcoded English strings that never reached the translation layer, so every non-English locale showed English in those spots. The fix routes the strings through the i18n system and restores coverage across all 27 supported languages, platform-wide.",
+    role: "Traced the strings that bypassed translation, wrote the fix, and carried it through review to merge on 11 June 2026.",
+    stack: ["TypeScript", "React", "i18n"],
+    live: null,
+    repo: {
+      url: "https://github.com/twentyhq/twenty/pull/21424",
+      label: "twentyhq/twenty #21424",
+    },
+    collaborators: [],
+    figures: [{ value: "27", label: "languages restored" }],
+  },
+  {
+    id: "raphel",
+    name: "Raphel",
+    year: "2026",
+    status: "Live",
+    logline:
+      "The black box for a construction site. Every entry is chained to the one before it, so any alteration is detectable.",
+    what: "A tamper-evident construction documentation platform for the Dominican Republic. Field entries are cryptographically linked by SHA-256 hash chaining and timestamped server-side, so the site log stands as evidence under Dominican Law 126-02. Designed offline-first for basements and dead zones, behind an interface built for non-technical site personnel.",
+    role: "Co-authored the product requirements document with Victor Manuel Acevedo, then built the platform: the Next.js interface for site residents and supervisors, the PostgreSQL schema, and the SHA-256 hash-chained record store.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "PL/pgSQL",
+      "SHA-256 hash chaining",
+    ],
+    live: { url: "https://www.raphel360.com/", label: "raphel360.com" },
+    repo: "private",
+    collaborators: [{ name: "Victor Manuel Acevedo" }],
+  },
+  {
     id: "vantage",
     name: "Vantage · Executive Intelligence",
     year: "2026",
@@ -80,26 +118,6 @@ export const projects: Project[] = [
     figures: [{ value: "3", label: "engineers, one product team" }],
   },
   {
-    id: "raphel",
-    name: "Raphel",
-    year: "2026",
-    status: "Live",
-    logline:
-      "The black box for a construction site. Every entry is chained to the one before it, so any alteration is detectable.",
-    what: "A tamper-evident construction documentation platform for the Dominican Republic. Field entries are cryptographically linked by SHA-256 hash chaining and timestamped server-side, so the site log stands as evidence under Dominican Law 126-02. Designed offline-first for basements and dead zones, behind an interface built for non-technical site personnel.",
-    role: "Co-authored the product requirements document with Victor Manuel Acevedo, then built the platform: the Next.js interface for site residents and supervisors, the PostgreSQL schema, and the SHA-256 hash-chained record store.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "PL/pgSQL",
-      "SHA-256 hash chaining",
-    ],
-    live: { url: "https://www.raphel360.com/", label: "raphel360.com" },
-    repo: "private",
-    collaborators: [{ name: "Victor Manuel Acevedo" }],
-  },
-  {
     id: "sentry",
     name: "Sentry",
     year: "2026",
@@ -125,23 +143,5 @@ export const projects: Project[] = [
     collaborators: [
       { name: "Jawad5C", url: "https://github.com/Jawad5C" },
     ],
-  },
-  {
-    id: "twenty",
-    name: "Twenty CRM · i18n restoration",
-    year: "2026",
-    status: "Merged upstream",
-    logline:
-      "Hardcoded English strings were bypassing the translation system. One fix restored coverage across 27 languages.",
-    what: "Twenty is an open-source CRM. Settings screens carried hardcoded English strings that never reached the translation layer, so every non-English locale showed English in those spots. The fix routes the strings through the i18n system and restores coverage across all 27 supported languages, platform-wide.",
-    role: "Traced the strings that bypassed translation, wrote the fix, and carried it through review to merge on 11 June 2026.",
-    stack: ["TypeScript", "React", "i18n"],
-    live: null,
-    repo: {
-      url: "https://github.com/twentyhq/twenty/pull/21424",
-      label: "twentyhq/twenty #21424",
-    },
-    collaborators: [],
-    figures: [{ value: "27", label: "languages restored" }],
   },
 ];
