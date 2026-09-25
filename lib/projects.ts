@@ -102,7 +102,7 @@ export const projects: Project[] = [
   {
     id: "sentry",
     name: "Sentry",
-    year: "2025",
+    year: "2026",
     status: "Shipped",
     logline:
       "Case management for re-entry facilities. Paper movement passes replaced by signed QR codes.",
