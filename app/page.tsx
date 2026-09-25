@@ -191,7 +191,7 @@ export default function Page() {
                     cat stack.txt
                   </h2>
                   <p className="mt-4 text-[14.5px] leading-[1.7] text-muted max-w-[28ch]">
-                    Four groups. What I reach for when the pressure is on.
+                    Five groups. What I reach for when the pressure is on.
                   </p>
                 </li>
                 {skills.map((group, index) => (
@@ -212,7 +212,7 @@ export default function Page() {
                 ))}
                 <li
                   className="shrink-0 w-[clamp(17rem,24vw,22rem)] border border-rule bg-surface/60 p-6"
-                  style={{ "--i": 5 } as React.CSSProperties}
+                  style={{ "--i": skills.length + 1 } as React.CSSProperties}
                 >
                   <p className="text-[14.5px] leading-[1.7] text-muted">
                     The long form is on the resume.
